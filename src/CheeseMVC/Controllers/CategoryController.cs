@@ -29,13 +29,22 @@ namespace CheeseMVC.Controllers
             return View();
         }
 
+        public IActionResult Add()
+        {
+            AddCategoryViewModel addCategoryViewModel = new AddCategoryViewModel();
+            return View(addCategoryViewModel);
+        }
         [HttpPost]
-        public IActionResult Add(addCategoryViewModel addCategoryViewModel)
+        public IActionResult Add(AddCategoryViewModel addCategoryViewModel)
         {
             if (ModelState.IsValid)
             {
-                var newCata = addCategoryViewModel.catagory;
-                context.Categories.Add(newCata);
+                string formCata = addCategoryViewModel.Category;
+                CheeseCategory newCheeseCategory = new CheeseCategory
+                {
+                    Name = formCata
+                };
+                context.Categories.Add(newCheeseCategory);
                 context.SaveChanges();
 
                 return Redirect("/Category");

@@ -8,12 +8,16 @@ using System.Threading.Tasks;
 
 namespace CheeseMVC.ViewModels
 {
-    public class addCategoryViewModel
+    public class AddCategoryViewModel
     {
         [Required(ErrorMessage = "You must have a catagory name!")]
-        [Display(Name = "Catagory Name")]
-        public string catagory { get; set; }
+        [Display(Name = "Category Name")]
+        public string Category { get; set; }
 
+        public AddCategoryViewModel()
+        {
+
+        }
         
     }
 }

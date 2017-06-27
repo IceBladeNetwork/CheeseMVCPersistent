@@ -1,0 +1,11 @@
+﻿
+
+
+<ul>
+    @foreach (var item in ViewBag.menuList)
+    { 
+        <li><a asp-controller="Menu" asp-action="ViewMenu" asp-route-id>@item.Name</a></li>
+    }
+</ul>
+
+<a asp-controller="Menu" asp-action="Add">Add Menu</a>

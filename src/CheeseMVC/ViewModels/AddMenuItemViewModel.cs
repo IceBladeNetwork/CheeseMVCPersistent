@@ -10,11 +10,10 @@ namespace CheeseMVC.ViewModels
 {
     public class AddMenuItemViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "That cheese is not valid!")]
         [Display(Name = "Cheeses")]
         public int CheeseID { get; set; }
 
-        [Required]
         public int MenuID { get; set; }
 
         public Menu Menu { get; set; }

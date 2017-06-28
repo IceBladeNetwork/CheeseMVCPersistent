@@ -59,20 +59,26 @@ namespace CheeseMVC.Controllers
                     .Include(item => item.Cheese)
                     .Where(cm => cm.MenuID == id)
                     .ToList();
-            ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel(items);
+
+            Menu menu = context.Menu.Single(m => m.ID == id);
+
+            ViewMenuViewModel viewMenuViewModel = new ViewMenuViewModel(menu, items);
+
             return View(viewMenuViewModel);
         }
 
-        [Route("/Controller/AddItem/{id}")]
+        [HttpGet]
+        [Route("/Menu/AddItem/{id}")]
         public IActionResult AddItem(int id)
         {
+            
             Menu menu = context.Menu.Single(m => m.ID == id);
 
-            List<CheeseMenu> items = context.CheeseMenus.Include(cm => cm.Cheese).Where(cm => cm.MenuID == id).ToList();
-            
-            //AddMenuItemViewModel addMenuItemViewModel = new AddMenuItemViewModel(menu, items);
+            List<Cheese> items = context.Cheeses.ToList();
 
-            return View();
+            AddMenuItemViewModel addMenuItemViewModel = new AddMenuItemViewModel(menu, items);
+
+            return View(addMenuItemViewModel);
         }
 
         [HttpPost]

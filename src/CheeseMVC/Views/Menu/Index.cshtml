@@ -4,7 +4,7 @@
 <ul>
     @foreach (var item in ViewBag.menuList)
     { 
-        <li><a asp-controller="Menu" asp-action="ViewMenu" asp-route-id>@item.Name</a></li>
+        <li><a asp-controller="Menu" asp-action="ViewMenu" asp-route-id="@item.ID">@item.Name</a></li>
     }
 </ul>
 

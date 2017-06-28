@@ -17,9 +17,10 @@ namespace CheeseMVC.ViewModels
         public ViewMenuViewModel()
         { }
 
-        public ViewMenuViewModel(List<CheeseMenu> items)
+        public ViewMenuViewModel(Menu menu, List<CheeseMenu> items)
         {
             Items = items;
+            Menu = menu;
         }
     }
 }

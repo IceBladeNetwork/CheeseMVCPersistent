@@ -89,7 +89,7 @@ namespace CheeseMVC.Controllers
                 IList<CheeseMenu> existingItems = context.CheeseMenus
                             .Where(cm => cm.CheeseID == addMenuItemViewModel.CheeseID)
                             .Where(cm => cm.MenuID == addMenuItemViewModel.MenuID).ToList();
-                if (existingItems == null)
+                if (existingItems.Count == 0)
                 {
                     CheeseMenu cheeseMenu = new CheeseMenu
                     {
@@ -100,9 +100,9 @@ namespace CheeseMVC.Controllers
                     context.SaveChanges();
                     return Redirect("/Menu/ViewMenu/" + addMenuItemViewModel.MenuID);
                 }
-                return View(addMenuItemViewModel);
+                return Redirect("/Menu/AddItem/" + addMenuItemViewModel.MenuID);
             }
-            return View(addMenuItemViewModel);
+            return Redirect("/Menu/AddItem/" + addMenuItemViewModel.MenuID);
         }
     }
 

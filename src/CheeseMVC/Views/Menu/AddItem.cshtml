@@ -5,11 +5,12 @@
 }
 <br />
 
+<h1>ViewBag.Title</h1>
 <form asp-controller="Menu" asp-action="AddItem" method="post">
     <div class="form-group">
         <label asp-for="CheeseID">
             <select asp-for="CheeseID" asp-items="Model.Cheeses"></select>
-            <input type="hidden" name="MenuID" value="Model.Menu.ID" />
+            <input type="hidden" name="MenuID" value="@Model.Menu.ID" />
             <span asp-validation-for="CheeseID"></span>
         </label>
     </div>

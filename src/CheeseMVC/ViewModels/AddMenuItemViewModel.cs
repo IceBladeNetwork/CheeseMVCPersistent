@@ -14,6 +14,7 @@ namespace CheeseMVC.ViewModels
         [Display(Name = "Cheeses")]
         public int CheeseID { get; set; }
 
+        [Required]
         public int MenuID { get; set; }
 
         public Menu Menu { get; set; }
@@ -24,6 +25,7 @@ namespace CheeseMVC.ViewModels
 
         public AddMenuItemViewModel(Menu menu, IEnumerable<Cheese> cheeses)
         {
+            //MenuID = menu.ID;
             Menu = menu;
             foreach (Cheese cheese in cheeses)
             {
